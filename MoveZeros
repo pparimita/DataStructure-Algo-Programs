@@ -1,0 +1,25 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.Arrays;
+class Main {
+    public static void main(String[] args) {
+        int[] nums={0,1,0,3,5,0,20};
+        System.out.println(Arrays.toString(moveZeros(nums)));//[1, 3, 5, 20, 0, 0, 0]
+  
+    }
+    
+    public static int[] moveZeros(int[] nums){
+        int writePos=0;
+        for(int readPos=0;readPos<nums.length;readPos++ ){
+            if(nums[readPos]!=0){
+                if(readPos!=writePos){
+                    int temp=nums[readPos];
+                    nums[readPos]=nums[writePos];
+                    nums[writePos]=temp;
+                }
+                writePos++;
+            }
+        }
+        return nums;
+    }
+}
